@@ -4,11 +4,29 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Emails input component</title>
+    <style>
+    body {
+      margin: 0 auto;
+      max-width: 600px;
+      font: 16px Helvetica, sans-serif;
+    }
+    #emails-input {
+      margin-bottom: 2rem;
+      height: 500px;
+    }
+    pre {
+      border: 1px solid #f0f0f0;
+      padding: 1rem;
+      font-size: 12px;
+    }
+    </style>
   </head>
   <body>
     <h1>Emails input component</h1>
 
+    <h3>Example</h3>
     <div id="emails-input"></div>
+    <link href="emails-input.css" rel="stylesheet" />
     <script src="emails-input.js"></script>
     <script>
       var inputContainerNode = document.querySelector('#emails-input');
@@ -21,5 +39,24 @@
         ],
       });
     </script>
+
+    <h3>Usage</h3>
+    <pre>&lt;div id="emails-input"&gt;&lt;/div&gt;
+&lt;link href="emails-input.css" rel="stylesheet" /&gt;
+&lt;script src="emails-input.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  var inputContainerNode = document.querySelector('#emails-input');
+  var emailsInput = EmailsInput(inputContainerNode, {
+    emails: [
+      'john@miro.com',
+      'invalid.email',
+      'mike@miro.com',
+      'alexander@miro.com',
+    ],
+  });
+&lt;/script&gt;</pre>
+
+    <h3>Credits</h3>
+    <p>Made by <a href="https://smvv.io">smvv</a>.</p>
   </body>
 </html>

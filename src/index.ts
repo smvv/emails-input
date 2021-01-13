@@ -1,17 +1,28 @@
 import {EmailsInputState} from './state';
+import {BoardParams, initBoard} from './board';
+import {initContainer} from './container';
 
 interface EmailsInputParams {
   emails?: string[];
+  board?: BoardParams;
 }
 
-const EmailsInput = function (root: Node, params?: EmailsInputParams) {
+const EmailsInput = function (
+  root: Element | null,
+  params?: EmailsInputParams,
+) {
+  // Early exit when root node is not set.
+  if (!root) return;
+
   const state: EmailsInputState = {
-    root,
+    container: initContainer(root),
+
     emails: params?.emails || [],
   };
 
-  console.log('params', params);
   console.log('state', state);
+
+  initBoard(state, params?.board);
 };
 
 export default EmailsInput;

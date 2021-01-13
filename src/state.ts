@@ -1,4 +1,8 @@
+import {EmailsInputContainer} from './container';
+
 export interface EmailsInputState {
-  root: Node;
+  container: EmailsInputContainer;
+
   emails: string[];
+
 }
