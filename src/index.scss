@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
+$button-margin: 8px;
+
+$container-border-radius: 8px;
+
 .emails-input-container {
   font: 14px 'Open Sans', sans-serif;
 
   background: #fff;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  border-radius: $container-border-radius;
 
   display: flex;
   flex-direction: column;
@@ -14,16 +18,15 @@
 }
 
 .emails-input-main {
-  padding: 0 9.26%;
   background: #f8f8f7;
-  border-radius: 8px 8px 0px 0px;
+  border-radius: $container-border-radius;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  height: 100%;
 }
 
 .emails-input-title {
-  margin: 32px 0 24px;
+  margin: 32px 9.26% 24px;
 
   font-family: Open Sans;
   font-style: normal;
@@ -40,9 +43,11 @@
 }
 
 .emails-input-area {
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
 
-  margin-bottom: 24px;
+  margin: 0 9.26% 24px;
+  padding: 6px 3px;
 
   background: #fff;
   border: 1px solid #c3c2cf;
@@ -50,11 +55,20 @@
   border-radius: 4px;
 
   overflow-y: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 .emails-input-buttons {
-  padding: 0 calc(9.26% - 8px);
-  margin: calc(24px - 8px) 0 calc(32px - 8px);
+  border-bottom-left-radius: $container-border-radius;
+  border-bottom-right-radius: $container-border-radius;
+
+  background: #fff;
+
+  padding: calc(24px - #{$button-margin}) calc(9.26% - #{$button-margin})
+    calc(32px - #{$button-margin});
 }
 
 .emails-input-button {
@@ -66,5 +80,29 @@
   font-size: 14px;
   line-height: 24px;
   border: 0;
-  margin: 8px;
+  margin: $button-margin;
+}
+
+.emails-input-email {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+
+  padding: 0 10px;
+  margin: 2px 4px;
+
+  color: #050038;
+
+  height: 24px;
+  background: rgba(102, 153, 255, 0.2);
+  border-radius: 100px;
+}
+
+.emails-input-email-invalid {
+  background: #fff;
+  border-radius: 0;
+  padding: 0;
+  border-bottom: 1px dashed #d92929;
 }

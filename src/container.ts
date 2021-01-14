@@ -26,7 +26,7 @@ export const initContainer = (root: Element): EmailsInputContainer => {
   const boardName = createElement(title, 'board-name');
 
   const area = createElement(main, 'area');
-  const buttons = createButtons(root);
+  const buttons = createButtons(main);
 
   return {
     root,

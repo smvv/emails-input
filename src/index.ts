@@ -1,6 +1,7 @@
 import {EmailsInputState} from './state';
 import {BoardParams, initBoard} from './board';
 import {initContainer} from './container';
+import {initEmails} from './email';
 
 import './index.scss';
 
@@ -18,13 +19,17 @@ const EmailsInput = function (
 
   const state: EmailsInputState = {
     container: initContainer(root),
-
-    emails: params?.emails || [],
+    emails: [],
   };
 
-  console.log('state', state);
-
   initBoard(state, params?.board);
+
+  const emails = params?.emails;
+  if (emails) {
+    state.emails = initEmails(state.container.area, emails);
+  }
+
+  console.log('state', state);
 };
 
 export default EmailsInput;
