@@ -11,9 +11,15 @@
       max-width: 600px;
       font: 16px Helvetica, sans-serif;
     }
-    #emails-input {
+    #parent-container {
       margin-bottom: 2rem;
       height: 500px;
+      width: 100%;
+      transition:  width 2s, height 2s;
+    }
+    #parent-container.is-small {
+      height: 240px;
+      width: 400px;
     }
     pre {
       border: 1px solid #f0f0f0;
@@ -27,7 +33,9 @@
     <h1>Emails input component</h1>
 
     <h3>Example</h3>
+    <div id="parent-container">
     <div id="emails-input"></div>
+    </div>
     <link href="emails-input.css" rel="stylesheet" />
     <script src="emails-input.js"></script>
     <script>
@@ -40,7 +48,14 @@
           'alexander@miro.com',
         ],
       });
+
+      var toggleSize = () => {
+        var parent = document.getElementById('parent-container');
+        parent.classList.toggle('is-small');
+      };
     </script>
+
+    <button onclick="toggleSize()">Toggle size</button>
 
     <h3>Usage</h3>
     <pre>&lt;div id="emails-input"&gt;&lt;/div&gt;

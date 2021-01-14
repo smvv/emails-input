@@ -9,6 +9,8 @@
 
   display: flex;
   flex-direction: column;
+
+  height: 100%;
 }
 
 .emails-input-main {
@@ -46,6 +48,8 @@
   border: 1px solid #c3c2cf;
   box-sizing: border-box;
   border-radius: 4px;
+
+  overflow-y: auto;
 }
 
 .emails-input-buttons {
