@@ -2,6 +2,8 @@ import {EmailsInputState} from './state';
 import {BoardParams, initBoard} from './board';
 import {initContainer} from './container';
 
+import './index.scss';
+
 interface EmailsInputParams {
   emails?: string[];
   board?: BoardParams;

@@ -1,3 +1,4 @@
 dist/*.js
+dist/emails-input.css
 *.js.map
 node_modules/
