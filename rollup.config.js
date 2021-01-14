@@ -1,5 +1,6 @@
 import typescript from 'rollup-plugin-typescript2';
 import scss from 'rollup-plugin-scss';
+import copy from 'rollup-plugin-copy';
 import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
@@ -11,6 +12,9 @@ const plugins = [
   }),
   scss({
     output: pkg.main.replace('.js', '.css'),
+  }),
+  copy({
+    targets: [{src: 'src/index.html', dest: 'dist'}],
   }),
 ];
 
