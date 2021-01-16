@@ -106,3 +106,15 @@ $container-border-radius: 8px;
   padding: 0;
   border-bottom: 1px dashed #d92929;
 }
+
+.emails-input-email-delete {
+  margin: -1px -2px 0 6px;
+  font-size: 20px;
+  display: inline-block;
+  vertical-align: top;
+
+  &::after {
+    cursor: pointer;
+    content: '×';
+  }
+}
