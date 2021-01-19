@@ -1,8 +1,13 @@
 import {EmailsInputState} from './state';
 import {BoardParams, initBoard} from './board';
 import {initContainer} from './container';
-import {initEmails} from './email';
-import {countValidEmails, addNewEmail} from './button';
+import {
+  initEmails,
+  initPlaceholder,
+  addEmail,
+  countValidEmails,
+  addNewEmail,
+} from './email';
 
 import './index.scss';
 
@@ -33,6 +38,9 @@ const EmailsInput = function (
   console.log('state', state);
 
   const {buttons, area} = state.container;
+
+  initPlaceholder(area, addEmail(area, state.emails));
+
   buttons.add.addEventListener('click', addNewEmail(area, state.emails));
   buttons.count.addEventListener('click', countValidEmails(state.emails));
 };

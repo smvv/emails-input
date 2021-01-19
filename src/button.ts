@@ -1,23 +1,4 @@
 import {createElement} from './utils';
-import {randomEmail, EmailInput} from './email';
-
-export const addNewEmail = (
-  area: Element,
-  emails: EmailInput[],
-): (() => void) => {
-  return () => {
-    const email = randomEmail();
-    const input = new EmailInput(area, emails, email);
-    emails.push(input);
-  };
-};
-
-export const countValidEmails = (emails: EmailInput[]): (() => void) => {
-  return () => {
-    const count = emails.filter(e => e.valid).length;
-    alert(count);
-  };
-};
 
 export const createButtons = (
   root: Element,

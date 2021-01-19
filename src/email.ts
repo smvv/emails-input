@@ -59,6 +59,26 @@ export const initEmails = (area: Element, emails: string[]): EmailInput[] => {
   return inputs;
 };
 
+export const addEmail = (
+  area: Element,
+  emails: EmailInput[],
+): ((input: string) => void) => {
+  return (input: string) => {
+    // Split input into multiple emails (delimited by comma or newline).
+    const parts = input.split(/[,\r\n]/);
+
+    parts.forEach(email => {
+      // Don't add empty email addresses.
+      email = email.trim();
+      if (!email.length) return;
+
+      console.log('email', email);
+
+      emails.push(new EmailInput(area, emails, email));
+    });
+  };
+};
+
 // randomEmail returns a semi-randomized, valid email address.
 export const randomEmail = (): string => {
   const alphabet = 'abcdef012345';
@@ -75,4 +95,59 @@ export const randomEmail = (): string => {
   for (var i = 0; i < 10; i++) result += randomChar();
 
   return result + '.com';
+};
+
+export const addNewEmail = (
+  area: Element,
+  emails: EmailInput[],
+): (() => void) => {
+  const add = addEmail(area, emails);
+  return () => add(randomEmail());
+};
+
+export const countValidEmails = (emails: EmailInput[]): (() => void) => {
+  return () => {
+    const count = emails.filter(e => e.valid).length;
+    alert(count);
+  };
+};
+
+export const initPlaceholder = (
+  area: Element,
+  add: (email: string) => void,
+): void => {
+  const input = document.createElement('input');
+  input.className = 'emails-input-placeholder';
+  area.appendChild(input);
+  input.placeholder = 'add more people…';
+
+  const onAdd = (e: UIEvent) => {
+    if (!e.target) return; // ignore event without target element.
+    const target = e.target as HTMLInputElement;
+
+    // Add email address.
+    add(target.value);
+
+    // Clear input value.
+    input.value = '';
+  };
+
+  input.addEventListener('blur', onAdd);
+  input.addEventListener('keyup', (e: KeyboardEvent) => {
+    // Detect comma or enter key.
+    if (e.code === 'Enter' || e.code === 'Comma') onAdd(e);
+  });
+  input.addEventListener('paste', (e: ClipboardEvent) => {
+    const clipboard = e.clipboardData; /* || (window as any).clipboardData */
+    if (!clipboard) return; // ignore event without clipboard data.
+
+    add(clipboard.getData('text'));
+
+    // Clear input value.
+    input.value = '';
+
+    // Prevent further event processing.
+    e.preventDefault();
+    e.stopPropagation();
+  });
 };
