@@ -1,5 +1,7 @@
 # Example usage
 
+Add the following code to an HTML file:
+
 ```
 <div id="emails-input"></div>
 <link href="emails-input.css" rel="stylesheet" />
@@ -13,8 +15,17 @@
       'mike@miro.com',
       'alexander@miro.com',
     ],
+    board: {
+      name: 'Hi Miro',
+    },
   });
 </script>
+```
+
+The valid email addresses can be obtained by:
+
+```
+emailsInput.getValidEmails();
 ```
 
 See also: [Demo page](https://smvv.github.io/emails-input/).

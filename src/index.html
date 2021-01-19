@@ -53,9 +53,15 @@
         var parent = document.getElementById('parent-container');
         parent.classList.toggle('is-small');
       };
+
+      var showValid = function () {
+        var emails = emailsInput.getValidEmails();
+        alert(emails.join('\n'));
+      };
     </script>
 
     <button onclick="toggleSize()">Toggle size</button>
+    <button onclick="showValid()">Show valid</button>
 
     <h3>Usage</h3>
     <pre>&lt;div id="emails-input"&gt;&lt;/div&gt;

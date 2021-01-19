@@ -72,8 +72,6 @@ export const addEmail = (
       email = email.trim();
       if (!email.length) return;
 
-      console.log('email', email);
-
       emails.push(new EmailInput(area, emails, email));
     });
   };

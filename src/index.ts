@@ -16,10 +16,14 @@ interface EmailsInputParams {
   board?: BoardParams;
 }
 
+interface EmailsInputAPI {
+  getValidEmails: () => string[];
+}
+
 const EmailsInput = function (
   root: Element | null,
   params?: EmailsInputParams,
-) {
+): EmailsInputAPI | undefined {
   // Early exit when root node is not set.
   if (!root) return;
 
@@ -35,8 +39,6 @@ const EmailsInput = function (
     state.emails = initEmails(state.container.area, emails);
   }
 
-  console.log('state', state);
-
   const {buttons, area} = state.container;
 
   const placeholder = initPlaceholder(area, addEmail(area, state.emails));
@@ -48,6 +50,10 @@ const EmailsInput = function (
     // Focus placeholder when input area is clicked.
     if (e.target == area) placeholder.focus();
   });
+
+  return {
+    getValidEmails: () => state.emails.filter(e => e.valid).map(e => e.email),
+  };
 };
 
 export default EmailsInput;
