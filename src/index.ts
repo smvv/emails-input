@@ -39,10 +39,15 @@ const EmailsInput = function (
 
   const {buttons, area} = state.container;
 
-  initPlaceholder(area, addEmail(area, state.emails));
+  const placeholder = initPlaceholder(area, addEmail(area, state.emails));
 
   buttons.add.addEventListener('click', addNewEmail(area, state.emails));
   buttons.count.addEventListener('click', countValidEmails(state.emails));
+
+  area.addEventListener('click', (e: Event) => {
+    // Focus placeholder when input area is clicked.
+    if (e.target == area) placeholder.focus();
+  });
 };
 
 export default EmailsInput;

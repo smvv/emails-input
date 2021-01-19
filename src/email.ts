@@ -115,7 +115,7 @@ export const countValidEmails = (emails: EmailInput[]): (() => void) => {
 export const initPlaceholder = (
   area: Element,
   add: (email: string) => void,
-): void => {
+): HTMLInputElement => {
   const input = document.createElement('input');
   input.className = 'emails-input-placeholder';
   area.appendChild(input);
@@ -153,4 +153,6 @@ export const initPlaceholder = (
     e.preventDefault();
     e.stopPropagation();
   });
+
+  return input;
 };
