@@ -138,7 +138,7 @@ export const initPlaceholder = (
     // Detect comma or enter key.
     const comma = 188; // fallback key code for IE11
     const enter = 13; // fallback key code for IE11
-    if (['Enter', 'Comma', enter, comma].includes(code)) onAdd(e);
+    if (['Enter', 'Comma', enter, comma].indexOf(code) > -1) onAdd(e);
   });
   input.addEventListener('paste', (e: ClipboardEvent) => {
     const clipboard = e.clipboardData || (window as any).clipboardData;
