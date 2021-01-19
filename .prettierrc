@@ -1,0 +1,8 @@
+# vim: ft=yaml
+semi: true
+arrowParens: avoid
+bracketSpacing: false
+singleQuote: true
+allowParents: always
+trailingComma: all
+tabWidth: 2
