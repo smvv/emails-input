@@ -1,75 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
-
-$button-margin: 8px;
-
-$container-border-radius: 8px;
-
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 .emails-input-container {
   font: 14px 'Open Sans', sans-serif;
-
   background: #fff;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-  border-radius: $container-border-radius;
-
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
-
-  height: 100%;
-}
+  height: 100%; }
 
 .emails-input-main {
   background: #f8f8f7;
-  border-radius: $container-border-radius;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-}
+  height: 100%; }
 
 .emails-input-title {
   margin: 32px 9.26% 24px;
-
   font-family: Open Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
   line-height: 27px;
-
-  color: #050038;
-}
+  color: #050038; }
 
 .emails-input-board-name {
   font-weight: 700;
-  display: inline;
-}
+  display: inline; }
 
 .emails-input-area {
   flex: 1 1 auto;
   min-height: 0;
-
   margin: 0 9.26% 24px;
   padding: 6px 3px;
-
   background: #fff;
   border: 1px solid #c3c2cf;
   box-sizing: border-box;
   border-radius: 4px;
-
   overflow-y: auto;
-
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start;
-}
+  align-content: flex-start; }
 
 .emails-input-buttons {
-  border-bottom-left-radius: $container-border-radius;
-  border-bottom-right-radius: $container-border-radius;
-
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   background: #fff;
-
-  padding: calc(24px - #{$button-margin}) calc(9.26% - #{$button-margin})
-    calc(32px - #{$button-margin});
-}
+  padding: calc(24px - 8px) calc(9.26% - 8px) calc(32px - 8px); }
 
 .emails-input-button {
   height: auto;
@@ -80,8 +58,7 @@ $container-border-radius: 8px;
   font-size: 14px;
   line-height: 24px;
   border: 0;
-  margin: $button-margin;
-}
+  margin: 8px; }
 
 .emails-input-placeholder,
 .emails-input-email {
@@ -91,43 +68,32 @@ $container-border-radius: 8px;
   font-size: 14px;
   line-height: 24px;
   margin: 2px 4px;
-  color: #050038;
-}
+  color: #050038; }
 
 .emails-input-email {
   padding: 0 10px;
-
   height: 24px;
   background: rgba(102, 153, 255, 0.2);
-  border-radius: 100px;
-}
+  border-radius: 100px; }
 
 .emails-input-placeholder {
   border: 0;
   padding: 0;
-
-  order: 1;
-
-  &::placeholder {
-    color: #c3c2cf;
-  }
-}
+  order: 1; }
+  .emails-input-placeholder::placeholder {
+    color: #c3c2cf; }
 
 .emails-input-email-invalid {
   background: #fff;
   border-radius: 0;
   padding: 0;
-  border-bottom: 1px dashed #d92929;
-}
+  border-bottom: 1px dashed #d92929; }
 
 .emails-input-email-delete {
   margin: 0 -2px 0 6px;
   font-size: 20px;
   display: inline-block;
-  vertical-align: top;
-
-  &::after {
+  vertical-align: top; }
+  .emails-input-email-delete::after {
     cursor: pointer;
-    content: '×';
-  }
-}
+    content: '×'; }
