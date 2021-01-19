@@ -14,7 +14,7 @@ export const addNewEmail = (
 
 export const countValidEmails = (emails: EmailInput[]): (() => void) => {
   return () => {
-    const count = emails.map(e => e.valid).length;
+    const count = emails.filter(e => e.valid).length;
     alert(count);
   };
 };
