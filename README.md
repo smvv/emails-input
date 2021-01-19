@@ -17,7 +17,7 @@
 </script>
 ```
 
-See also: [https://smvv.github.io/emails-input/](Demo page)
+See also: [Demo page](https://smvv.github.io/emails-input/).
 
 # Development
 
