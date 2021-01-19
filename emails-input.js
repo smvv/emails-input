@@ -137,11 +137,14 @@
       };
       input.addEventListener('blur', onAdd);
       input.addEventListener('keyup', function (e) {
-          if (e.code === 'Enter' || e.code === 'Comma')
+          var code = e.code || e.keyCode;
+          var comma = 188;
+          var enter = 13;
+          if (['Enter', 'Comma', enter, comma].includes(code))
               onAdd(e);
       });
       input.addEventListener('paste', function (e) {
-          var clipboard = e.clipboardData;
+          var clipboard = e.clipboardData || window.clipboardData;
           if (!clipboard)
               return;
           add(clipboard.getData('text'));
