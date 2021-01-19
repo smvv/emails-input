@@ -9,7 +9,7 @@ const createDeleteButton = (elem: Element): Element => {
 
 // isValid returns true when the email is considered valid. This checks if
 // there is an at-sign present in the email address.
-const isValid = (email: string) => email.includes('@');
+const isValid = (email: string) => email.indexOf('@') > -1;
 
 export class EmailInput {
   element: Element;
