@@ -152,6 +152,7 @@
           e.preventDefault();
           e.stopPropagation();
       });
+      return input;
   };
 
   var EmailsInput = function (root, params) {
@@ -168,9 +169,13 @@
       }
       console.log('state', state);
       var _a = state.container, buttons = _a.buttons, area = _a.area;
-      initPlaceholder(area, addEmail(area, state.emails));
+      var placeholder = initPlaceholder(area, addEmail(area, state.emails));
       buttons.add.addEventListener('click', addNewEmail(area, state.emails));
       buttons.count.addEventListener('click', countValidEmails(state.emails));
+      area.addEventListener('click', function (e) {
+          if (e.target == area)
+              placeholder.focus();
+      });
   };
 
   return EmailsInput;
