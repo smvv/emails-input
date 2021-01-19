@@ -140,7 +140,7 @@
           var code = e.code || e.keyCode;
           var comma = 188;
           var enter = 13;
-          if (['Enter', 'Comma', enter, comma].includes(code))
+          if (['Enter', 'Comma', enter, comma].indexOf(code) > -1)
               onAdd(e);
       });
       input.addEventListener('paste', function (e) {
