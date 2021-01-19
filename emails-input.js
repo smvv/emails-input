@@ -95,7 +95,6 @@
               email = email.trim();
               if (!email.length)
                   return;
-              console.log('email', email);
               emails.push(new EmailInput(area, emails, email));
           });
       };
@@ -167,7 +166,6 @@
       if (emails) {
           state.emails = initEmails(state.container.area, emails);
       }
-      console.log('state', state);
       var _a = state.container, buttons = _a.buttons, area = _a.area;
       var placeholder = initPlaceholder(area, addEmail(area, state.emails));
       buttons.add.addEventListener('click', addNewEmail(area, state.emails));
@@ -176,6 +174,9 @@
           if (e.target == area)
               placeholder.focus();
       });
+      return {
+          getValidEmails: function () { return state.emails.filter(function (e) { return e.valid; }).map(function (e) { return e.email; }); },
+      };
   };
 
   return EmailsInput;
