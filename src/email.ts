@@ -134,11 +134,14 @@ export const initPlaceholder = (
 
   input.addEventListener('blur', onAdd);
   input.addEventListener('keyup', (e: KeyboardEvent) => {
+    const code = e.code || e.keyCode;
     // Detect comma or enter key.
-    if (e.code === 'Enter' || e.code === 'Comma') onAdd(e);
+    const comma = 188; // fallback key code for IE11
+    const enter = 13; // fallback key code for IE11
+    if (['Enter', 'Comma', enter, comma].includes(code)) onAdd(e);
   });
   input.addEventListener('paste', (e: ClipboardEvent) => {
-    const clipboard = e.clipboardData; /* || (window as any).clipboardData */
+    const clipboard = e.clipboardData || (window as any).clipboardData;
     if (!clipboard) return; // ignore event without clipboard data.
 
     add(clipboard.getData('text'));
